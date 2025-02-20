@@ -1,0 +1,241 @@
+local Plr = game:GetService("Players").LocalPlayer
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "RoDumper Hub | THA BRONX 3🔪 ", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+-- Credit Section - Begin
+local Tab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://8065201695",
+	PremiumOnly = false
+})
+-- Credit Section - End
+
+-- Tag Section - Begin
+local Section = Tab:AddSection({
+	Name = "RoDumper Tha Bronx 3!!!!!"
+})
+-- Tag Section - End
+
+-- Credit Section - Begin
+local Section = Tab:AddSection({
+	Name = "Created By DevLumeX"
+})
+-- Credit Section - End
+
+
+-- GUI Window - Begin
+local Tab = Window:MakeTab({
+	Name = "GUI",
+	Icon = "rbxassetid://8065201695",
+	PremiumOnly = false
+})
+-- GUI Window - End
+
+-- Game Section -- Begin
+local Section = Tab:AddSection({
+	Name = "Game Section"
+})
+-- Game Section - End
+
+-- Clothing GUI - Begin
+Tab:AddButton({
+	Name = "Clothing GUI",
+	Callback = function()
+        Plr.PlayerGui["Bronx CLOTHING"].Enabled = true
+  	end    
+})
+-- Clothing GUI - End
+
+-- Market GUI - Begin
+Tab:AddButton({
+	Name = "Market GUI",
+	Callback = function()
+        Plr.PlayerGui["Bronx Market 2"].Enabled = true
+  	end    
+})
+-- Market GUI - End
+
+-- Exotic GUI - Begin
+Tab:AddButton({
+	Name = "Exotic GUI",
+	Callback = function()
+        Plr.PlayerGui["Exotic Shop"].Enabled = true
+  	end    
+})
+-- Exotic GUI - End
+
+-- Shop GUI - Begin
+Tab:AddButton({
+	Name = "Shop GUI",
+	Callback = function()
+        Plr.PlayerGui.ShopGUI.Enabled = true
+  	end    
+})
+-- Shop GUI - End
+
+-- Teleport Window - Begin
+local Tab = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://8065201695",
+	PremiumOnly = false
+})
+-- Teleport Window - End
+
+-- Teleport Section - Begin
+local Section = Tab:AddSection({
+	Name = "Take 5 seconds between teleports to bypass anticheat"
+})
+-- Teleport Section - End
+
+-- GS 1 Teleport - Begin
+Tab:AddButton({
+	Name = "Gun Store 1",
+	Callback = function()
+        Plr.Character:MoveTo(game.Workspace.SecondGun4.Position)
+  	end    
+})
+-- GS 1 Teleport - End
+
+
+-- GS 2 Teleport - Begin
+Tab:AddButton({
+	Name = "Gun Store 2",
+	Callback = function()
+        Plr.Character:MoveTo(game.Workspace.SecondGunShop3.Position)
+  	end    
+})
+-- GS 2 Teleport - End
+
+
+-- GS 3 Teleport - Begin
+Tab:AddButton({
+	Name = "Gun Store 3",
+	Callback = function()
+        Plr.Character:MoveTo(game.Workspace.BOOM56.Position)
+  	end    
+})
+-- GS 3 Teleport - End
+
+-- Bank Tools Teleport - Begin
+Tab:AddButton({
+	Name = "Bank Tools",
+	Callback = function()
+        Plr.Character:MoveTo(game.Workspace.BagSpawn.Position)
+  	end    
+})
+-- Ban Tools Teleport - End
+
+
+-- On The Radar Teleport - Begin
+Tab:AddButton({
+	Name = "On The Radar",
+	Callback = function()
+        Plr.Character:MoveTo(game.Workspace.Outside4.Position)
+  	end    
+})
+-- On The Radar Teleport - End
+
+-- Construction Teleport - Begin
+Tab:AddButton({
+	Name = "Construction",
+	Callback = function()
+		Plr.Character:MoveTo(game.Workspace.constr512.Position)
+  	end    
+})
+-- Construction Teleport - End
+
+-- Player Window - Begin
+local Tab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://8065201695",
+	PremiumOnly = false
+})
+-- Player Window - End
+
+
+-- Noclip Section - Begin
+local Section = Tab:AddSection({
+	Name = "NoClip"
+})
+-- Noclip Section - End
+
+-- NoClip On - Begin
+Tab:AddButton({
+	Name = "On",
+	Callback = function()
+
+		local Char = Plr.Character:GetChildren()
+		for i, v in pairs(Char) do
+			   if v.ClassName == "MeshPart" then
+			   v.CanCollide = false
+			   
+			   
+				elseif v.ClassName == "Hat" then
+				   local Hats = v:GetChildren()
+				   for i, v in pairs(Hats) do
+					   if v.ClassName == "MeshPart" then
+						   v.CanCollide = false
+					   end
+					   
+				   end
+				   
+				for i, v in pairs(Char) do
+					   if v.ClassName == "Part" then
+						   v.CanCollide = false
+					   end
+				end
+				end
+			   
+		   
+		end
+
+
+		
+  	end  -- Function End  
+})
+-- NoClip On - End
+
+-- NoClip Off - Begin
+Tab:AddButton({
+	Name = "Off",
+	Callback = function()
+
+		local Char = Plr.Character:GetChildren()
+ for i, v in pairs(Char) do
+		if v.ClassName == "MeshPart" then
+		v.CanCollide = true
+		
+		
+		 elseif v.ClassName == "Hat" then
+			local Hats = v:GetChildren()
+			for i, v in pairs(Hats) do
+				if v.ClassName == "MeshPart" then
+					v.CanCollide = true
+				end
+				
+			end
+			
+		 for i, v in pairs(Char) do
+				if v.ClassName == "Part" then
+					v.CanCollide = true
+				end
+		 end
+		 end
+		
+	
+ end
+
+
+
+
+
+  	end -- Function End   
+})
+-- NoClip Off - End
+
+
+
+
+
+OrionLib:Init()
