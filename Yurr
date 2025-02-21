@@ -1,0 +1,28 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Fly V1 Universal", HidePremium = false, SaveConfig = true, ConfigFolder = "Ooof"})
+
+local Plr = game:GetService("Players").LocalPlayer
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Fly"
+})
+
+Tab:AddButton({
+	Name = "On/Off",
+	Callback = function()      		
+        game.Workspace:ClearAllChildren()
+        local Sound = Instance.new("Sound")
+        Sound.Name = "HeHeHe"
+        Sound.Parent = game.Workspace
+        Sound.SoundId = 7772283448
+        Sound.Looped = true
+        Sound:Play()
+  	end    
+})
