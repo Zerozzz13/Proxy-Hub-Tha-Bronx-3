@@ -1,21 +1,51 @@
+-- Infinite Jump Variables
+local UserInputService = game:GetService("UserInputService")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local function enableInfiniteJump(character)
+    local humanoid = character:WaitForChild("Humanoid", 5)
+    if not humanoid then return end
+
+    UserInputService.JumpRequest:Connect(function()
+        if humanoid then
+            humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+        end
+    end)
+end
+if player.Character then
+    enableInfiniteJump(player.Character)
+end
+player.CharacterAdded:Connect(function(character)
+    enableInfiniteJump(character)
+end)
+-- IFJ Variables - End
+
 local Plr = game:GetService("Players").LocalPlayer
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Proxy Hub | THA BRONX 3🔪 ", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Proxy Hub | THA BRONX 3🔪 ", HidePremium = false, SaveConfig = true, ConfigFolder = "Hub",})
 
--- Credit Section - Begin
+-- Info - Begin
 local Tab = Window:MakeTab({
-	Name = "Credits",
+	Name = "Info",
 	Icon = "rbxassetid://8065201695",
 	PremiumOnly = false
 })
--- Credit Section - End
+-- Info - End
 
 -- Tag Section - Begin
 local Section = Tab:AddSection({
-	Name = "Proxy Hub | THA BRONX 3🔪 "
+	Name = "**This script only works in tha bronx 3**"
 })
 -- Tag Section - End
+
+-- Tag Section 1 - Begin
+local Section = Tab:AddSection({
+	Name = "Proxy Hub | THA BRONX 3🔪"
+})
+-- Tag Section 1 - End
 
 -- Credit Section - Begin
 local Section = Tab:AddSection({
@@ -23,6 +53,11 @@ local Section = Tab:AddSection({
 })
 -- Credit Section - End
 
+-- UserName - Begin
+local Section = Tab:AddSection({
+	Name = "Enjoy: "..Plr.Name
+})
+-- UserName - End
 
 -- GUI Window - Begin
 local Tab = Window:MakeTab({
@@ -234,7 +269,52 @@ Tab:AddButton({
 })
 -- NoClip Off - End
 
+-- Speeds - Begin
+local Section = Tab:AddSection({
+	Name = "Speeds"
+})
+-- Speeds - End
 
+Tab:AddSlider({
+	Name = "Max: 1500, Min: 16 - Walkspeed",
+	Min = 16,
+	Max = 1500,
+	Default = 16,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "WalkSpeed",
+	Callback = function(Value)
+		Plr.Character.Humanoid.WalkSpeed = Value
+	end    
+})
+
+-- Infinite - Begin
+local Section = Tab:AddSection({
+	Name = "Infinite Jump"
+})
+-- Infinite - End
+
+-- Infinte On - Begin
+Tab:AddButton({
+	Name = "On",
+	Callback = function()
+        UserInputService.JumpRequest:Connect(function()
+			if humanoid then
+				humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+			end
+		end)
+  	end    
+})
+-- Infinite On - End
+
+-- Construction Teleport - Begin
+Tab:AddButton({
+	Name = "Off",
+	Callback = function()
+		Plr.Character.Humanoid.Health = 0
+  	end    
+})
+-- Construction Teleport - End
 
 
 
