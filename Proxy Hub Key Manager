@@ -1,0 +1,63 @@
+-- Orion Libary
+
+local ExploitKey = "H_________HG2492442424+=====2=242=2=5==24==24=3=53=3=56=6==3=3335553"
+
+local MSG = "Wrong Game Dumbass"
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+
+if game.PlaceId == 16472538603 then
+	local Window = OrionLib:MakeWindow({Name = "Proxy Hub Key Manager | THA BRONX 3🔪", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Plr = game:GetService("Players").LocalPlayer
+
+OrionLib:MakeNotification({
+	Name = "Welcome!",
+	Content = "Please enter the correct key to continue.",
+	Image = "rbxassetid://8065201695",
+	Time = 5
+})
+
+local Tab = Window:MakeTab({
+	Name = "Key",
+	Icon = "rbxassetid://8065201695",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Enter the correct key."
+})
+
+Tab:AddTextbox({
+	Name = "Key",
+	Default = "Enter Key",
+	TextDisappear = true,
+	Callback = function(Value)
+        if Value == ExploitKey then
+            OrionLib:MakeNotification({
+                Name = "Key",
+                Content = "You've used the correct key!",
+                Image = "rbxassetid://8065201695",
+                Time = 5
+            })
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/Zerozzz13/Proxy-Hub-Tha-Bronx-3/refs/heads/main/ProXy%20Hub')))()
+        else
+            OrionLib:MakeNotification({
+                Name = "Key",
+                Content = "You've used the incorrect key!",
+                Image = "rbxassetid://8065201695",
+                Time = 5
+            })
+        end
+	end	  
+})
+print("correct Game")
+else
+    print("Incorrect Game")
+    Plr:Kick(MSG)
+
+end
+
+
+
+
