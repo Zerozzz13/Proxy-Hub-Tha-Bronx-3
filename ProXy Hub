@@ -316,6 +316,72 @@ Tab:AddButton({
 })
 -- Construction Teleport - End
 
+-- NYPD Section - Begin
+local Tab = Window:MakeTab({
+	Name = "NYPD",
+	Icon = "rbxassetid://8065201695",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "This tab is made for NYPD use."
+})
+
+local Section = Tab:AddSection({
+	Name = "Teleports"
+})
+
+-- Station - Begin
+Tab:AddButton({
+	Name = "NYPD Locker Room",
+	Callback = function()
+		Plr.Character:MoveTo(game.Workspace.policeSpawnLocation.Position)
+  	end    
+})
+-- Station - End
+
+-- Prison In - Begin
+Tab:AddButton({
+	Name = "Prison In",
+	Callback = function()
+		Plr.Character:MoveTo(game.Workspace.PrisonTP33.Position)
+  	end    
+})
+-- Prison In - End
+
+-- Prison Out - Begin
+Tab:AddButton({
+	Name = "Prison Out",
+	Callback = function()
+		Plr.Character:MoveTo(game.Workspace.PrisonTP34.Position)
+  	end    
+})
+-- Prison Out - End
+
+local Section = Tab:AddSection({
+	Name = "GUIs"
+})
+
+-- Locker - Begin
+Tab:AddButton({
+	Name = "NYPD Locker Gui",
+	Callback = function()
+		Plr.PlayerGui["Bronx LOCKER"].Enabled = true
+  	end    
+})
+-- Locker - End
+
+-- Garage - Begin
+Tab:AddButton({
+	Name = "NYPD Garage",
+	Callback = function()
+		Plr.PlayerGui["NYPD Cars"].Enabled = true
+  	end    
+})
+-- Garage - End
+
+
+
 
 
 OrionLib:Init()
